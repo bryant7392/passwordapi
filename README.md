@@ -154,7 +154,7 @@ Invoke-RestMethod -Uri "http://localhost:8000/latest" `
     -ContentType "application/json"
 
 # Grab All Passwords for User (API Only Holds Last 5, and cleans older after container restart)
-Invoke-RestMethod -Uri "http://dockerutil:8000/all" `
+Invoke-RestMethod -Uri "http://localhost:8000/all" `
     -Method POST `
     -Headers @{ "x-api-key" = "12345678" } `
     -Body (@{
