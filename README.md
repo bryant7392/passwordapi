@@ -60,11 +60,12 @@ $fingerprint = Get-DeviceFingerprint
 ```
 
 #### Registry Key for Secret
-```powershell
 This takes your generated Org Secret Value and installs it in the registry with Administrators and SYSTEM Access to the value.
+```powershell
+$CompanyName = 'MyOrg'
 $salt = 'GeneratedOrgSecretValue'
 
-$regPath = "HKLM:\SOFTWARE\YourCo\DeviceAuth"
+$regPath = "HKLM:\SOFTWARE\$CompanyName\DeviceAuth"
 
 # Create key if it doesn't exist
 if (-not (Test-Path $regPath)) {
@@ -95,7 +96,8 @@ Powershell Call Examples.  this also includes a timestamp to prevent replay atta
 ###################################################
 
 # Load secret from registry
-$orgSecret = (Get-ItemProperty "HKLM:\SOFTWARE\YourCo\DeviceAuth").Secret
+$CompanyName = 'MyOrg'
+$orgSecret = (Get-ItemProperty "HKLM:\SOFTWARE\$CompanyName\DeviceAuth").Secret
 
 # Generate fingerprint
 function Get-DeviceFingerprint {
