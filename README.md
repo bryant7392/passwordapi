@@ -25,6 +25,10 @@ Update the Base Path value which will be the path to the folder with these proje
 
 ### Deploy Stack
 ```bash
+git clone https://github.com/bryant7392/passwordapi
+
+cd passwordapi
+
 docker compose --file passwordapi.yml --project-name passwordapi up -d
 ```
 
